@@ -91,5 +91,8 @@ Dalam pembuatan sebuah web berbasis Django, *virtual environment* berfungsi seba
    
  Terima Kasih
 
+```
  Salam hangat,
+ 
  Hikam
+```
