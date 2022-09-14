@@ -70,7 +70,7 @@ Dalam pembuatan sebauh web berbasis Django, virtual environment berfungsi sebaga
       data_barang_katalog = CatalogItem.objects.all()
       context = {
          'list_barang': data_barang_katalog,
-         'nama': 'Fahmi Sabila Firdaus'
+         'nama': 'Hikam Fajduani'
       }
       
  14. Setelah itu, return pada fungsi show_katalog juga di modifikasi dengan menambahkan context seperti berikut:
