@@ -38,6 +38,7 @@ Dalam pembuatan sebauh web berbasis Django, virtual environment berfungsi sebaga
      ]
      
 10. Pada katalog.html, kita perlu menambahkan kode-kode seperti berikut yang sesuai dengan yang ada pada models.py
+ 
     {% for barang in list_barang %}
 
     <tr>
@@ -55,6 +56,7 @@ Dalam pembuatan sebauh web berbasis Django, virtual environment berfungsi sebaga
        <th>{{barang.item_url}}</th>
 
     </tr>
+    
 11. Menambah aplikasi katalog ke urls.py pada folder project_django, yaitu dengan cara memodifikasi variabel urlpatterns dengan menambah kode berikut:
  
       path('katalog', include('katalog.urls')),
