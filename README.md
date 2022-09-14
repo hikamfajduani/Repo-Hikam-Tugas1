@@ -22,9 +22,12 @@ Dalam pembuatan sebauh web berbasis Django, virtual environment berfungsi sebaga
 6. Menerapkan skema model tersebut ke database Django lokal dengan menggunakan atau menjalankan perintah manage.py migrate
 7. Memasukkan data yang ada dari user ke dalam database Django lokal tersebut dengan menggunakan perintah python manage.py loaddata initial_catalog_data.json
 8. Membuat fungsi show_katalog di file views.py seperti berikut: 
+
      def show_katalog(request):
      return render(request, "katalog.html")
+     
 9. Mengimport kode urls.py ke folder katalog seperti berikut:
+
      from django.urls import path
      from katalog.views import show_katalog
 
@@ -33,6 +36,7 @@ Dalam pembuatan sebauh web berbasis Django, virtual environment berfungsi sebaga
      urlpatterns = [
         path('', show_katalog, name='show_katalog'),
      ]
+     
 10. Pada katalog.html, kita perlu menambahkan kode-kode seperti berikut yang sesuai dengan yang ada pada models.py
     {% for barang in list_barang %}
 
@@ -51,18 +55,26 @@ Dalam pembuatan sebauh web berbasis Django, virtual environment berfungsi sebaga
        <th>{{barang.item_url}}</th>
 
     </tr>
-11. Menambah aplikasi katalog ke urls.py pada folder project_django, yaitu dengan cara memodifikasi variabel urlpatterns dengan menambah kode berikut: 
+11. Menambah aplikasi katalog ke urls.py pada folder project_django, yaitu dengan cara memodifikasi variabel urlpatterns dengan menambah kode berikut:
+ 
       path('katalog', include('katalog.urls')),
+      
 12. meng-import models ke dalam views.py dengan cara sebagai berikut:
+
       from katalog.models import CatalogItem
+      
 13. Memodifikasi fungsi show_katalog dengan menambahkan kode berikut:
+
       data_barang_katalog = CatalogItem.objects.all()
       context = {
          'list_barang': data_barang_katalog,
          'nama': 'Fahmi Sabila Firdaus'
       }
+      
  14. Setelah itu, return pada fungsi show_katalog juga di modifikasi dengan menambahkan context seperti berikut:
+ 
       return render(request, "katalog.html", context)
+     
  15. Setelah semuanya selesai dilakukan di repositori lokal, maka setelah itu kita melakukan push ke dalam repositori pribadi GitHub sebelumnya dengan cara git add . - git commit -m "pesan" - git pull - git push
  16. Untuk mengetes hasil yang telah dibuat sebelumnya, maka coba lakukan python manage.py runserver pada cmd lalu membuka link http://localhost:8000/katalog/ di browser.
  17. Ketika hasil di browser sudah sesuai seperti yang diinginkan, maka langkah terakhir yaitu mendeploy aplikasi menggunakan heroku agar dapat membagikan hasil kerja menjadi public dan dapat diakses oleh orang lain.
