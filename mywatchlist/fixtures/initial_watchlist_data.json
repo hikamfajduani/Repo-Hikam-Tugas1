@@ -1,0 +1,113 @@
+[
+    {
+        "model":"mywatchlist.watchlistfilm",
+        "pk":1,
+        "fields":{
+            "film_watched": true,
+            "film_title":"Kimi no Nawa",
+            "film_rating": 5,
+            "film_release": "7 Desember 2016",
+            "film_review": "endingnya sangat menggantung"
+        }
+},
+{
+        "model":"mywatchlist.watchlistfilm",
+        "pk":2,
+        "fields":{
+            "film_watched": false,
+            "film_title":"Fifty Shades of Grey",
+            "film_rating": 4,
+            "film_release": "13 Februari 2015",
+            "film_review": "awas matanya ternodai"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlistfilm",
+        "pk":3,
+        "fields":{
+            "film_watched": false,
+            "film_title":"Peaky Blinders",
+            "film_rating": 4,
+            "film_release": "12 September 2013",
+            "film_review": "dingin banget cuyy"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlistfilm",
+        "pk":4,
+        "fields":{
+            "film_watched": true,
+            "film_title":"High and Low",
+            "film_rating": 4,
+            "film_release": "22 Oktober 2015",
+            "film_review": "Membuat jiwa tawuran meronta-ronta"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlistfilm",
+        "pk":5,
+        "fields":{
+            "film_watched": true,
+            "film_title":"Money Heist",
+            "film_rating": 5,
+            "film_release": "2 Mei 2017",
+            "film_review": "Mengasah otak, professor pinter banget"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlistfilm",
+        "pk":6,
+        "fields":{
+            "film_watched": false,
+            "film_title":"Mencuri Raden Saleh",
+            "film_rating": 5,
+            "film_release": "25 Agustus 2022",
+            "film_review": "Cast nya bintang besar semua"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlistfilm",
+        "pk":7,
+        "fields":{
+            "film_watched": false,
+            "film_title":"Peaky Blinders",
+            "film_rating": 4,
+            "film_release": "12 September 2013",
+            "film_review": "dingin banget cuyy"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlistfilm",
+        "pk":8,
+        "fields":{
+            "film_watched": true,
+            "film_title":"Ruroni Kenshin",
+            "film_rating": 4,
+            "film_release": "25 Agutus 2012",
+            "film_review": "Adegan action samurainya keren"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlistfilm",
+        "pk":9,
+        "fields":{
+            "film_watched": true,
+            "film_title":"The Conjuring",
+            "film_rating": 5,
+            "film_release": "26 Juli 2013",
+            "film_review": "Film horror pertama yang saya tonton, vibesnya menyeramkan"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlistfilm",
+        "pk":10,
+        "fields":{
+            "film_watched": true,
+            "film_title":"Saw",
+            "film_rating": 4,
+            "film_release": "29 Oktober 2004",
+            "film_review": "Tidak disarankan kalo phobia darah, filmnya sangat sadis"
+        }
+    }
+        
+]
