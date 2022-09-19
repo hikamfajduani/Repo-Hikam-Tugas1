@@ -26,10 +26,10 @@
         "pk":3,
         "fields":{
             "film_watched": false,
-            "film_title":"Peaky Blinders",
-            "film_rating": 4,
-            "film_release": "12 September 2013",
-            "film_review": "dingin banget cuyy"
+            "film_title":"Scout Guide to the Zombie Apocalypse",
+            "film_rating": 5,
+            "film_release": "30 Oktober 2015",
+            "film_review": "Film zombie tapi komedi"
         }
     },
     {
