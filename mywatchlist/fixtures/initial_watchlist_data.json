@@ -25,7 +25,7 @@
         "model":"mywatchlist.watchlistfilm",
         "pk":3,
         "fields":{
-            "film_watched": false,
+            "film_watched": true,
             "film_title":"Scout Guide to the Zombie Apocalypse",
             "film_rating": 5,
             "film_release": "30 Oktober 2015",
