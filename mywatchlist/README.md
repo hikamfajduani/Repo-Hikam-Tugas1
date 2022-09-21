@@ -9,12 +9,12 @@
 *Data delivery* diperlukan untuk pengimplementasian sebuah *platform* dimana kita perlu mengirimkan sebuah data dari satu `stack` ke `stack` lainnya. Data yang di transfer ini, bentuknya dapat beragam, contohnya adalah format data yang umum digunakan, atau juga digunakan pada implementasi tugas 3 kali ini yaitu `HTML`, `XML`, dan `JSON`. 
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
-- Membuat `django-app` baru dari repository tugas sebelumnya dengan nama `mywatchlist` dengan perintah python `manage.py startapp wishlist`.
+- Membuat `django-app` baru dari repository tugas sebelumnya dengan nama `mywatchlist` dengan perintah python `manage.py startapp mywatchlist`.
 - Mendaftarkan `django-app` baru tersebut ke dalam variabel `INSTALLED_APPS` yang berapa di folder `project_django` di file `settings.py` seperti berikut.
 ```
 INSTALLED_APPS = [
     ...,
-    'wishlist',
+    'mywatchlist',
 ]
 ```
 - Memodifikasi `models.py` yang berada di folder `mywatchlist` seperi berikut.
@@ -191,3 +191,36 @@ class WatchlistFilm(models.Model):
 
  {% endblock content %}
 ```
+- Melakukan routing terhadap fungsi `views` sehingga nantinya halaman `HTML` dapat ditampilkan di browser.
+- Menghubungkan models dengan views dan template
+- Melakukan data delivery, menggunakan data data yang umum seperti `HTML`, `XML`, dan `JSON`
+- Mengembalikan data dalam bentuk `XML` dengan membuat fungsi . Isi dari fungsinya adalah.
+ ```
+def show_xml(request):
+    data = WatchlistFilm.objects.all()
+    return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+```
+- Mengembalikan data dalam bentuk `JSON` dengan membuat fungsi .Isi dari fungsinya adalah.
+```
+def show_json(request):
+    data = WatchlistFilm.objects.all()
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+ ```
+ - Melakukan deployment ke `heroku` dengan melakukan *push* ke repository tugas sebelumnya.
+ 
+ # Mengecek Postman
+ 
+ ## HTML
+ ![image](https://user-images.githubusercontent.com/96283916/191568593-9c00028f-37cc-4158-87e7-21d0a6cb9f6b.png)
+
+## XML
+![image](https://user-images.githubusercontent.com/96283916/191568705-90c3fcb2-aca5-4f97-82c3-7c74b9afa417.png)
+
+## JSON
+![image](https://user-images.githubusercontent.com/96283916/191568821-561c54a9-4fde-4ad4-a5c1-5efb745565f1.png)
+
+ Terima kasih atas perhatiannya.
+ 
+ Salam hangat,
+ 
+ Hikam Fajduani
