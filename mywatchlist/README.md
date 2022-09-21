@@ -208,6 +208,8 @@ def show_json(request):
  ```
  - Melakukan deployment ke `heroku` dengan melakukan *push* ke repository tugas sebelumnya.
  
+ # Mengecek Postman
+ 
  ## HTML
  ![image](https://user-images.githubusercontent.com/96283916/191568593-9c00028f-37cc-4158-87e7-21d0a6cb9f6b.png)
 
