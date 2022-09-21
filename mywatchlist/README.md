@@ -145,4 +145,49 @@ class WatchlistFilm(models.Model):
 ]
  ```
  - Memasukkan data ke dalam database Django lokal dengan perintah `python manage.py loaddata initial_watchlist_data.json`
- - Kita sudah bisa mulai untuk melakukan implementasi views dasar, dimulai dengan membuat fungsi yang menerima parameter request
+ - Kita sudah bisa mulai untuk melakukan implementasi views dasar, dimulai dengan membuat fungsi yang menerima parameter request dan me-*return* `render(request, "watchlist.html")`. Selain itu fungsi ini akan berfungsi untuk memanggil fungsi *query* ke model database dan menyimpan hasil *query* ke dalam sebuah variable. Berikut merupakan fungsinya.
+ ```
+ def show_watchlist(request):
+    data_watchlist = WatchlistFilm.objects.all()
+    context = {
+    'watchlist_film': data_watchlist,
+    'nama': 'Hikam Fajduani'
+    }
+    return render(request, "watchlist.html", context)
+ ```
+ - Setelah itu, kita perlu membuat folder dengan nama `templates` yang dimana folder tersebut akan menyimpan berkas `html` yang telah di inisiasi di *step* sebelumnya sebagai return. Maka dari itu, kita akan membuat folder `watchlist.html` seperti berikut.
+ ```
+ {% extends 'base.html' %}
+
+ {% block content %}
+
+  <h1>Assignment 3 PBP/PBD</h1>
+
+  <h5>Name: </h5>
+  <p>Hikam Fajduani</p>
+
+  <h5>Student ID: </h5>
+  <p>2106634250</p>
+
+  <table>
+    <tr>
+      <th>Watched</th>
+      <th>Title</th>
+      <th>Rating</th>
+      <th>Release Date</th>
+      <th>Review</th>
+    </tr>
+    {% comment %} Add the data below this line {% endcomment %}
+    {% for watchlist in watchlist_film %}
+      <tr>
+          <th>{{watchlist.film_watched}}</th>
+          <th>{{watchlist.film_title}}</th>
+          <th>{{watchlist.film_rating}}</th>
+          <th>{{watchlist.film_release}}</th>
+          <th>{{watchlist.film_review}}</th>
+      </tr>
+    {% endfor %}
+  </table>
+
+ {% endblock content %}
+```
