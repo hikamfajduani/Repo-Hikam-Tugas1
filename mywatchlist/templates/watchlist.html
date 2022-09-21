@@ -1,17 +1,63 @@
 {% extends 'base.html' %}
 
  {% block content %}
+  <style>
+    .tabel{
+      margin: 0 auto;
+    }
+    .text{
+      font-size: 20px;
+      font-family: sans-serif;
+      font-weight: bold;
+    }
+    .text1{
+      font-size: 20px;
+      font-family: sans-serif;
+      font-weight:lighter;
+    }
+    .text2{
+      font-size: 40px;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-weight:bolder;
+      color: #e62525;
 
-  <h1>Assignment 3 PBP/PBD</h1>
+    }
+    .content-table{
+      border-collapse: collapse;
+      margin: 25px 0;
+      font-family: sans-serif;
+      font-size: 0.9em;
+      min-width: 400px;
+      border-radius: 5px 5px 0 0;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+    .content-table th,
+    .content-table td{
+      padding: 12px 15px;
+    }
+    .content-table tbody tr{
+      border-bottom: 1px solid #e62525;
+    }
+    .content-table tbody tr:last-of-type{
+      border-bottom: 2px solid #e62525;
+    }
+    .content-table tbody tr.active-row{
+      font-weight: bold;
+      color: #ffffff;
+      background-color: #e62525;
+    }
+  </style>
 
-  <h5>Name: </h5>
-  <p>Hikam Fajduani</p>
+  <h1 class="text2">Assignment 3 PBP/PBD </h1>
 
-  <h5>Student ID: </h5>
-  <p>2106634250</p>
+  <h2 class="text">Name: </h2>
+  <p class="text1">Hikam Fajduani</p>
 
-  <table border="4" bordercolor="brown">
-    <tr>
+  <h2 class="text">Student ID: </h2>
+  <p class="text1">2106634250</p>
+  <table class="content-table">
+    <tr class="active-row">
       <th>Watched</th>
       <th>Title</th>
       <th>Rating</th>
@@ -30,7 +76,7 @@
     {% endfor %}
   </table>
 
-  <h2>Pesan: </h2>
-  <p>{{pesan}}</p>
+  <h2 class="text">Pesan: </h2>
+  <p class="text1">{{pesan}}</p>
 
  {% endblock content %}
