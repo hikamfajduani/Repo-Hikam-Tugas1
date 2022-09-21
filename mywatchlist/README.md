@@ -9,12 +9,12 @@
 *Data delivery* diperlukan untuk pengimplementasian sebuah *platform* dimana kita perlu mengirimkan sebuah data dari satu `stack` ke `stack` lainnya. Data yang di transfer ini, bentuknya dapat beragam, contohnya adalah format data yang umum digunakan, atau juga digunakan pada implementasi tugas 3 kali ini yaitu `HTML`, `XML`, dan `JSON`. 
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
-- Membuat `django-app` baru dari repository tugas sebelumnya dengan nama `mywatchlist` dengan perintah python `manage.py startapp wishlist`.
+- Membuat `django-app` baru dari repository tugas sebelumnya dengan nama `mywatchlist` dengan perintah python `manage.py startapp mywatchlist`.
 - Mendaftarkan `django-app` baru tersebut ke dalam variabel `INSTALLED_APPS` yang berapa di folder `project_django` di file `settings.py` seperti berikut.
 ```
 INSTALLED_APPS = [
     ...,
-    'wishlist',
+    'mywatchlist',
 ]
 ```
 - Memodifikasi `models.py` yang berada di folder `mywatchlist` seperi berikut.
