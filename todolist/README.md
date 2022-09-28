@@ -13,7 +13,7 @@ Proses dari alur data submisi oleh pengguna melalui HTML form, penyimpanan data 
 ### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
 - Langkah pertama yang dilakukan adalah mengaktifkan virtual environtment di terminal.
 - Selanjutnya, membuat sebuah aplikasi baru dengan menggunakan `python manage.py startapp wishlist`.
-- Melakukan routin aplikasi yang telah dibuat sebelumnya ke `urls.py` yang ada pada `project_django`
+- Melakukan routing aplikasi yang telah dibuat sebelumnya ke `urls.py` yang ada pada `project_django`
 - Menambahkan komponen pada Models.py di aplikasi django yang telah dibuat sebelumnya dengan isi sebagai berikut.
     ```
     class IsiTodolist(models.Model):
