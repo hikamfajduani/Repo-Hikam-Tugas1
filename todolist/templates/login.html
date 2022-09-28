@@ -1,14 +1,47 @@
 {% extends 'base.html' %}
-
-{% block meta %}
-<title>Login</title>
-{% endblock meta %}
-
 {% block content %}
 
+<style>
+    table{
+        margin: auto;
+        font-size: 20px;
+        font-family: sans-serif;
+        font-weight: bold;
+        color: #e62525;
+    }
+    .headertext{
+        text-align: center;
+        font-size: 40px;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight:bolder;
+        color: #ffffff;
+        text-align: center;
+        padding: 30px 40px;
+        border: none;
+        background-color: #e62525;
+    }
+    .button {
+        padding: 2px 30px;
+        border: none;
+        background-color: #e62525;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 16px;
+        color: #fff;
+        border-radius: 50px;
+        cursor: pointer;
+    }
+    .text{
+      font-size: 15px;
+      font-family: sans-serif;
+      font-weight:lighter;
+      text-align: center;
+      color: #e62525;
+    }
+</style>
 <div class = "login">
 
-    <h1>Login</h1>
+    <h1 class="headertext">Login</h1>
 
     <form method="POST" action="">
         {% csrf_token %}
@@ -25,7 +58,7 @@
 
             <tr>
                 <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
+                <td><input class="button" type="submit" value="Login"></td>
             </tr>
         </table>
     </form>
@@ -38,7 +71,7 @@
         </ul>
     {% endif %}     
         
-    Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a>
+    <h1 class="text">Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a></h1>
 
 </div>
 

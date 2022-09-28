@@ -1,31 +1,21 @@
 {% extends 'base.html' %}
  {% block content %}
  <style>
-    .logout-button{
-    top:11%;
-    left:47%;
-    width:100px;
-    height:40px;
-    position:center;
-    z-index: 2;
-    background:#9bb2e0;
-    ; 
+    button {
+        padding: 2px 40px;
+        border: none;
+        background-color: #e62525;
+        font-family: sans-serif;
+        font-weight: bold;
+        font-size: 12px;
+        color: #fff;
+        border-radius: 50px;
+        cursor: pointer;
     }
     body{
       text-align: center;
     }
-    .create-button{
-    top:11%;
-    left:47%;
-    width:100px;
-    height:40px;
-    position:center;
-    z-index: 4;
-    background:#9bb2e0;
-    ; 
-    }
-    .tabel{
-      margin: 0 auto;
+    .buttontext{
       text-align: center;
     }
     .text{
@@ -44,9 +34,8 @@
       font-size: 40px;
       font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       font-weight:bolder;
-      color: #257fe6;
+      color: #e62525;
       text-align: center;
-
     }
     .content-table{
       border-collapse: collapse;
@@ -57,22 +46,21 @@
       border-radius: 5px 5px 0 0;
       overflow: hidden;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-      
     }
     .content-table th,
     .content-table td{
       padding: 12px 15px;
     }
     .content-table tbody tr{
-      border-bottom: 1px solid #257fe6;
+      border-bottom: 1px solid #e62525
     }
     .content-table tbody tr:last-of-type{
-      border-bottom: 2px solid #257fe6;
+      border-bottom: 2px solid #e62525;
     }
     .content-table tbody tr.active-row{
       font-weight: bold;
       color: #ffffff;
-      background-color: #257fe6;
+      background-color: #e62525;
     }
   </style>
 
@@ -95,13 +83,13 @@
     <td>{{ todo.todo_title }}</td>
     <td>{{ todo.todo_description }}</td>
     <td>{{ todo.is_finished }}</td>
-    <td> <button><a href="{% url 'todolist:change_status' todo.id %}">Change Status</a></p></button> </td>
-    <td> <button><a href="{% url 'todolist:delete' todo.id %}">Delete</a></p></button> </td>
+    <td> <button><a href="{% url 'todolist:change_status' todo.id %}" style="color:#ffffff">Change Status</a></p></button> </td>
+    <td> <button><a href="{% url 'todolist:delete' todo.id %}" style="color:#ffffff">Delete</a></p></button> </td>
   </tr>
   {% endfor %}
 </table>
 
-<h5 class="text1">Sesi terakhir login: {{ last_login }}</h5>
-<button class="logout-button"><a href="{% url 'todolist:logout' %}">Keluar</a></p></button>
-<button class="create-button"><a href="{% url 'todolist:create' %}">Tambah Kegiatan</a></p></button>
+<h5 class="text1">Last login: {{ last_login }}</h5>
+<button><a href="{% url 'todolist:logout' %}" style="color:#ffffff; text-align: center;">Quit</a></p></button>
+<button><a href="{% url 'todolist:create' %}" style="color:#ffffff">Create Task</a></p></button>
 {% endblock content %}
