@@ -6,6 +6,7 @@ from django.core import serializers
 # Create your views here.
 def show_watchlist(request):
     data_watchlist = WatchlistFilm.objects.all()
+    # Untuk bonus
     sudahDitonton = 0
     belumDitonton = 0
     pesan = ""
@@ -38,8 +39,5 @@ def show_json_by_id(request,id):
     data = WatchlistFilm.objects.filter(pk=id)
     # Jika JSON
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
-
-
-
     # Jika XML
     #return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
