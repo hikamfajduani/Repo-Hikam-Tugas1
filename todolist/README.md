@@ -31,3 +31,5 @@ Proses dari alur data submisi oleh pengguna melalui HTML form, penyimpanan data 
 - Membuat dua akun pengguna dan tiga *dummy data*
 
 ![image](https://user-images.githubusercontent.com/96283916/192886953-14e1e576-2d65-4c63-bdb6-5a8dfdc3dc43.png)
+![image](https://user-images.githubusercontent.com/96283916/192887873-3cf79022-f08a-4bc6-810b-6daa6de43f43.png)
+
