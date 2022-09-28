@@ -76,3 +76,15 @@ def create(request):
     context = {"form": form}
     return render(request, 'create.html', context)
  
+@login_required(login_url='/todolist/login/')
+def selesai(request, id):
+    task = IsiTodolist.objects.get(pk = id)
+    task.is_finished = not task.is_finished
+    task.save()
+    return redirect('todolist:show_todolist')
+
+@login_required(login_url='/todolist/login/')
+def hapus(request, id):
+    task = IsiTodolist.objects.get(pk = id)
+    task.delete()
+    return redirect('todolist:show_todolist')

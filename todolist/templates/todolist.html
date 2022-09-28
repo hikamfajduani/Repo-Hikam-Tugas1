@@ -11,6 +11,9 @@
     background:#9bb2e0;
     ; 
     }
+    body{
+      text-align: center;
+    }
     .create-button{
     top:11%;
     left:47%;
@@ -75,19 +78,25 @@
 
 <h1 class="text2">Assignment 4 PBP/PBD </h1>
 
-<h1 class="text">Haii, {{ user.get_username }}</h1>
+<h1 class="text">Haii, {{ user.get_username }} have a nice day 🥰</h1>
 
 <table class="content-table">
   <tr class="active-row">
     <th>Date</th>
     <th>Title</th>
     <th>Description</th>
+    <th>Status</th>
+    <th>Change Status</th>
+    <th>Delete</th>
   </tr>
   {% for todo in list_todo %}
   <tr>
     <td>{{ todo.todo_date }}</td>
     <td>{{ todo.todo_title }}</td>
     <td>{{ todo.todo_description }}</td>
+    <td>{{ todo.is_finished }}</td>
+    <td> <button><a href="{% url 'todolist:change_status' todo.id %}">Change Status</a></p></button> </td>
+    <td> <button><a href="{% url 'todolist:delete' todo.id %}">Delete</a></p></button> </td>
   </tr>
   {% endfor %}
 </table>

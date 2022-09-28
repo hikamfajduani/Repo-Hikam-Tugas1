@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -7,3 +8,4 @@ class IsiTodolist(models.Model):
     todo_date = models.TextField()
     todo_title = models.TextField()
     todo_description = models.TextField()
+    is_finished = models.BooleanField(default=False)
