@@ -13,7 +13,7 @@ from todolist.form import CreateTodoForm
 @login_required(login_url='/todolist/login/')
 def show_todolist(request):
     user = request.user
-    data_todolist = IsiTodolist.objects.all()
+    data_todolist = IsiTodolist.objects.all().filter(user=request.user)
     context = {
     'list_todo': data_todolist,
     'nama' : user.username,
@@ -57,9 +57,11 @@ def logout_user(request: HttpRequest):
     response.delete_cookie('last_login')
     return response
 
+@login_required(login_url='/todolist/login/')
 def create(request):
-    if request.method == "POST":
-        form = CreateTodoForm(request.POST)
+    form = CreateTodoForm(request.POST)
+    if request.method == 'POST':
+        form = CreateTodoForm(request.POST, request.FILES)
         if form.is_valid():
             task = IsiTodolist(
                 todo_date=str(datetime.datetime.now().date()),
@@ -68,9 +70,9 @@ def create(request):
                 user=request.user,
             )
             task.save()
-            messages.success(request, "Berhasil disimpan!")
-            return redirect("todolist:show_todolist")
-
-    form = CreateTodoForm()
-    ctx = {"form": form}
-    return render(request, "create.html", ctx)
+            return redirect('todolist:show_todolist')
+    else:
+        form = CreateTodoForm(initial={'user': request.user})
+    context = {"form": form}
+    return render(request, 'create.html', context)
+ 
