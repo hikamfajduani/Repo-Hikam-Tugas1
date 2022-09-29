@@ -1,4 +1,3 @@
-from turtle import color
 from django import forms
 
 class CreateTodoForm(forms.Form):
