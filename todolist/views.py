@@ -12,7 +12,7 @@ from todolist.form import CreateTodoForm
 # Create your views here.
 @login_required(login_url='/todolist/login/')
 def show_todolist(request):
-    user = request.user
+    user = request.user 
     data_todolist = IsiTodolist.objects.all().filter(user=request.user)
     context = {
     'list_todo': data_todolist,

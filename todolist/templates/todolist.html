@@ -1,95 +1,177 @@
 {% extends 'base.html' %}
  {% block content %}
  <style>
-    button {
-        padding: 2px 40px;
-        border: none;
-        background-color: #e62525;
-        font-family: sans-serif;
-        font-weight: bold;
-        font-size: 12px;
-        color: #fff;
-        border-radius: 50px;
-        cursor: pointer;
+    a {
+    text-decoration: none;
     }
-    body{
-      text-align: center;
+    body {
+    background: -webkit-linear-gradient(bottom, #e66f25, #ffffff);
+    background-repeat:no-repeat;
     }
-    .buttontext{
-      text-align: center;
+    label {
+    font-family: "Raleway", sans-serif;
+    font-size: 11pt;
     }
-    .text{
-      font-size: 30px;
-      font-family: sans-serif;
+    .header-text{
+      font-family: "Raleway", sans-serif;
       font-weight: bold;
+      font-size: 40pt;
       text-align: center;
-    }
-    .text1{
-      font-size: 20px;
-      font-family: sans-serif;
-      font-weight:lighter;
-      text-align: center;
-    }
-    .text2{
-      font-size: 40px;
-      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-      font-weight:bolder;
       color: #e62525;
+    }
+    .body-text{
+      font-family: "Raleway", sans-serif;
+      font-weight: lighter;
+      font-size: 20pt;
       text-align: center;
+      color: #000000;
     }
-    .content-table{
-      border-collapse: collapse;
-      margin: auto;
-      font-family: sans-serif;
-      font-size: 0.9em;
-      min-width: 400px;
-      border-radius: 5px 5px 0 0;
-      overflow: hidden;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    .flex{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
     }
-    .content-table th,
-    .content-table td{
-      padding: 12px 15px;
+    #card {
+    background: #fbfbfb;
+    border-radius: 8px;
+    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
+    height: 300px;
+    margin: auto;
+    width: 200px;
     }
-    .content-table tbody tr{
-      border-bottom: 1px solid #e62525
+    #card-content {
+    padding: 5px 20px;
     }
-    .content-table tbody tr:last-of-type{
-      border-bottom: 2px solid #e62525;
+    #card-title {
+    font-family: "Raleway Thin", sans-serif;
+    font-size: 10pt;
+    letter-spacing: 4px;
+    padding-bottom: 23px;
+    padding-top: 13px;
+    text-align: center;
     }
-    .content-table tbody tr.active-row{
-      font-weight: bold;
-      color: #ffffff;
-      background-color: #e62525;
+    #signup {
+    color: #e62525;
+    font-family: "Raleway", sans-serif;
+    font-size: 10pt;
+    margin-top: 16px;
+    text-align: center;
+    }
+    #submit-btn {
+    background: -webkit-linear-gradient(right, #e6d925, #e62525);
+    border: none;
+    border-radius: 21px;
+    box-shadow: 0px 1px 8px #e62525;
+    cursor: pointer;
+    color: white;
+    font-family: "Raleway SemiBold", sans-serif;
+    height: 20px;
+    margin: 0 auto;
+    margin-top: auto;
+    transition: 0.25s;
+    align-items: center;
+    }
+    #submit-btn:hover {
+    box-shadow: 0px 1px 18px #e62525;
+    }
+    #other-btn {
+    background: -webkit-linear-gradient(right, #e6d925, #e62525);
+    border: none;
+    border-radius: 21px;
+    box-shadow: 0px 1px 8px #e62525;
+    cursor: pointer;
+    color: white;
+    font-family: "Raleway SemiBold", sans-serif;
+    height: 40px;
+    margin: auto;
+    transition: 0.25s;
+    width: 150px;
+    text-align: center;
+    }
+    #other-btn:hover {
+    box-shadow: 0px 1px 18px #e62525;
+    }
+    .form {
+    align-items: left;
+    display: flex;
+    flex-direction: column;
+    }
+    .form-border {
+    background: -webkit-linear-gradient(right, #e6d925, #e62525);
+    height: 1px;
+    width: 100%;
+    }
+    .form-content {
+    background: #fbfbfb;
+    border: none;
+    outline: none;
+    padding-top: 14px;
+    }
+    .underline-title {
+    background: -webkit-linear-gradient(right, #e6d925, #e62525);
+    height: 2px;
+    margin: -1.1rem auto 0 auto;
+    width: 89px;
     }
   </style>
 
-<h1 class="text2">Assignment 4 PBP/PBD </h1>
 
-<h1 class="text">Haii, {{ user.get_username }} have a nice day 🥰</h1>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Todolist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
 
-<table class="content-table">
-  <tr class="active-row">
-    <th>Date</th>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Status</th>
-    <th>Change Status</th>
-    <th>Delete</th>
-  </tr>
-  {% for todo in list_todo %}
-  <tr>
-    <td>{{ todo.todo_date }}</td>
-    <td>{{ todo.todo_title }}</td>
-    <td>{{ todo.todo_description }}</td>
-    <td>{{ todo.is_finished }}</td>
-    <td> <button><a href="{% url 'todolist:change_status' todo.id %}" style="color:#ffffff">Change Status</a></p></button> </td>
-    <td> <button><a href="{% url 'todolist:delete' todo.id %}" style="color:#ffffff">Delete</a></p></button> </td>
-  </tr>
-  {% endfor %}
-</table>
+<h1 class="header-text">Assignment 4 PBP/PBD </h1>
 
-<h5 class="text1">Last login: {{ last_login }}</h5>
-<button><a href="{% url 'todolist:logout' %}" style="color:#ffffff; text-align: center;">Quit</a></p></button>
-<button><a href="{% url 'todolist:create' %}" style="color:#ffffff">Create Task</a></p></button>
+<h1 class="body-text">Haii, {{ user.get_username }} have a nice day</h1>
+
+<a href="{% url 'todolist:logout' %}">
+  <input id="other-btn" type="button" value="Quit" />
+</a> 
+
+{% for todo in list_todo %}
+<div class="flex">
+  <div id="card">
+    <div id="card-content">
+      <div id="card-title">
+        <h1>{{ todo.todo_title }}</h1>
+        <div class="underline-title"></div>
+      </div>
+      
+      <div>
+        <label style="padding-top:13px">
+          &nbsp;{{ todo.todo_date }}
+        </label>
+        <div class="form-border"></div>
+
+        <label style="padding-top:13px">
+          &nbsp;{{ todo.todo_description }}
+        </label>
+        <div class="form-border"></div>
+
+        <label style="padding-top:13px">
+          &nbsp;{{ todo.is_finished }}
+        </label>
+        <div class="form-border"></div>
+
+        <a href="{% url 'todolist:change_status' todo.id %}">
+          <input id="submit-btn" type="button" value="Change Status" />
+        </a>
+
+        <a href="{% url 'todolist:delete' todo.id %}">
+          <input id="submit-btn" type="button" value="Delete" />
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+<h5 class="body-text">Last login: {{ last_login }}</h5>
+<a href="{% url 'todolist:create' %}">
+  <input id="other-btn" type="button" value="Create Task" />
+</a>
+
 {% endblock content %}
