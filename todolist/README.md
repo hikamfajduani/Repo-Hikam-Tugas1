@@ -33,3 +33,14 @@ Proses dari alur data submisi oleh pengguna melalui HTML form, penyimpanan data 
 ![image](https://user-images.githubusercontent.com/96283916/192886953-14e1e576-2d65-4c63-bdb6-5a8dfdc3dc43.png)
 ![image](https://user-images.githubusercontent.com/96283916/192887873-3cf79022-f08a-4bc6-810b-6daa6de43f43.png)
 
+# Tugas 5
+### Apa perbedaan dari Inline, Internal, dan External CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?
+Perbedaan dari Inline, Internal dan External CSS dapat ditinjau dari beberapa aspek yaitu lokasi dan scope atau jangkauannya. Untuk lokasi Inline sendiri berada di dalam elemen dengar atrr `<style>`, untuk Internal yaitu berapa di dalam `HTML` dengan tag `style`, sedangkan untuk External sendiri yaitu berada di dalam bagian `css` yang di-import dengan tag `<tag>`. Selain itu untuk aspek scope atau jangkauannya yaitu untuk Inline memiliki jangkauan hanya untuk elemen-elemen yang digunakannya, untuk Internal yaitu untuk satu halaman saja sedangkan untuk External adalah setiap halaman yang melakukan import.
+
+Adapun kelebihan dan kekurangan dari masing-masing style adalah untuk Inline sendiri kelebihannya adalah dapat digunakan untuk melimit ke suatu elemen tertentu saja, tetapi, tagnya akan terlihat cukup tidak beraturan. Hal ini dikarenakan style dicampur dengan HTML. Sedankan untuk Internal CSS memiliki kelebihan dimana dapat dilimit juga untuk suatu halaman tertentu, tetapi akan tidak efisien ketika terdapat perulangan untuk halaman lain. Selain itu untuk External CSS kelebihannya yaitu dapat digunakan untuk berbagi style ke beberapa halaman sekaligus, akan tetapi, cukup menyulitkan untuk melakukan debugnya. 
+
+### Jelaskan tag HTML5 yang kamu ketahui.
+
+### Jelaskan tipe-tipe CSS selector yang kamu ketahui.
+
+### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
