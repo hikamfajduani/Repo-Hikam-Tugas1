@@ -11,6 +11,10 @@
     label {
     font-family: "Raleway", sans-serif;
     font-size: 11pt;
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
     }
     .header-text{
       font-family: "Raleway", sans-serif;
@@ -36,7 +40,7 @@
     border-radius: 8px;
     box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
     height: 300px;
-    margin: auto;
+    margin: 6rem auto 8.1rem auto;
     width: 200px;
     }
     #card-content {
@@ -135,7 +139,6 @@
 </a> 
 
 {% for todo in list_todo %}
-<div class="flex">
   <div id="card">
     <div id="card-content">
       <div id="card-title">
@@ -169,7 +172,6 @@
       </div>
     </div>
   </div>
-</div>
 {% endfor %}
 
 <h5 class="body-text">Last login: {{ last_login }}</h5>
