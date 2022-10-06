@@ -40,7 +40,24 @@ Perbedaan dari Inline, Internal dan External CSS dapat ditinjau dari beberapa as
 Adapun kelebihan dan kekurangan dari masing-masing style adalah untuk Inline sendiri kelebihannya adalah dapat digunakan untuk melimit ke suatu elemen tertentu saja, tetapi, tagnya akan terlihat cukup tidak beraturan. Hal ini dikarenakan style dicampur dengan HTML. Sedankan untuk Internal CSS memiliki kelebihan dimana dapat dilimit juga untuk suatu halaman tertentu, tetapi akan tidak efisien ketika terdapat perulangan untuk halaman lain. Selain itu untuk External CSS kelebihannya yaitu dapat digunakan untuk berbagi style ke beberapa halaman sekaligus, akan tetapi, cukup menyulitkan untuk melakukan debugnya. 
 
 ### Jelaskan tag HTML5 yang kamu ketahui.
+- `<header>` tag ini seperti dengan namanya yaitu header adalah suatu tag yang biasa digunakan sebagai header suatu website. Header ini biasanya terletak di bagian paling atas html.
+- `<nav>` tag ini dapat disebut sebagai Navigation Bar dimana digunakan sebagai mevigasi menu utama sebuah halaman web. Biasanya digunakan untuk menggabungkan beberapa link dari daftar isi ataupun link menuju halaman sebelum ataupun sesudah. Selain itu, navbar biasanya terletak di bagian paling atas.
+- `<aside>` merupakan sebuah elemen tag yang dimana adalah elemen tambahan. Aside ini merupakan elemen yang ditempatkan di sisi lain halaman HTML. Biasanya terletak di sisi kanan maupun sisi kiri bahkan sisi bawah dari konten utama pada halaman HTML.
+- `<section>` merupakan sebuah tag yang merepresentasikan sebuah bagian dari dokumen maupun aplikasi. Element ini juga digunakan untuk mengelompokkan konten/dokumen menjadi beberapa bagian berdasarkan tema atau pokok pikiran masing-masing.
+- `<article>` merupakan sebuah tag yang digunakan untuk memberi mark up sebuah konten independen, yaitu elemen yang dapat berdiri sendiri sebagai sebuah konten utuh yang tidak terikat dengan konten lain.
+- `<footer>` merupakan sebuah elemen yang merepresentasikan catatan kaki atau catatan pada bagian akhir halaman atau bagian bawah halaman.
 
 ### Jelaskan tipe-tipe CSS selector yang kamu ketahui.
+- Selector class, contohnya seperti `.class` adalah selektor yang memilih elemen berdasarkan nama class yang diberikan.
+- Selector ID, contohnya seperti `#header` adalah selektor yang hampir mirip dengan selector class namun ini bersifat cukup unik yaitu hanya dapat digunakan oleh satu elemen saja.
+- Selector tag, contohnya seperti `<p>` adalah selektor yang akan memilih elemen berdasarkan nama tagnya.
+- Universal selector, contohnya yaitu `*` adalah selektor yang dapat digunakan ke semua elemen pada jangkauan scope tertentu
 
 ### Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+- Menggunakan repositori tugas sebelumnya.
+- Membuat beberapa file atau class CSS yang akan digunakan untuk memodifikasi html.file nya.
+- Membuat juga sebuah card yang nantinya akan digunakan untuk membungkus login form, register form, create form, hingga task task yang di create.
+- Setelah membuat class, lalu memodifikasi file html dengan memasukkan fungsi-fungsi tersebut ke file html masing-masing lalu di sesuaikan, dimulai dari login.html, register.html, create.html, dan juga todolist.html
+- Mengkreasikan warna, posisi dan elemen di website semenarik dan sekreatif mungkin.
+- Menambahkan hover atau animasi yang responsif ke dalam beberapa elemen untuk mendapatkan bonus.
+- Mendeploy aplikasi local ke heroku agar dapat diakses oleh orang lain.
