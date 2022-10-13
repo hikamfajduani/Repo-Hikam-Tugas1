@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
  {% block content %}
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+ 
  <style>
     *,
     *::before,
@@ -9,7 +12,7 @@
     text-decoration: none;
     }
     body {
-    background: -webkit-linear-gradient(bottom, #e66f25, #ffffff);
+    background: -webkit-linear-gradient(bottom, #fff56c, #ffffff);
     background-repeat:no-repeat;
     }
     label {
@@ -79,6 +82,7 @@
     cursor: pointer;
     color: white;
     font-family: "Raleway SemiBold", sans-serif;
+    font-size: 10pt;
     height: 20px;
     margin: 0 auto;
     margin-top: 30px;
@@ -105,28 +109,8 @@
     align-items: center;
     justify-content: center;
     }
-    #other1-btn {
-    background: -webkit-linear-gradient(right, #e6d925, #ffffff);
-    border: none;
-    border-radius: 21px;
-    box-shadow: 0px 1px 8px #e62525;
-    cursor: pointer;
-    color: #e62525;
-    font-family: "Raleway SemiBold", sans-serif;
-    height: 40px;
-    margin: auto;
-    transition: 0.25s;
-    width: 150px;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    }
     #other-btn:hover {
     box-shadow: 0px 1px 18px #e62525;
-    }
-    #other1-btn:hover {
-    box-shadow: 0px 1px 18px #ffffff;
     }
     .form {
     align-items: left;
@@ -164,49 +148,113 @@
 
 <h1 class="body-text">Haii, {{ user.get_username }} have a nice day</h1>
 
-<a href="{% url 'todolist:create' %}">
-  <input id="other-btn" type="button" value="Create Task" />
+<!-- href="{% url 'todolist:create' %}" -->
+<a>
+  <input class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reg-modal" id="other-btn" type="button" value="Create Task" />
 </a>
 
+</script>
 {% for todo in list_todo %}
-  <div id="card">
-    <div id="card-content">
-      <div id="card-title">
-        <h1>{{ todo.todo_title }}</h1>
-        <div class="underline-title"></div>
-      </div>
-      
-      <div>
-        <label style="padding-top:13px">
-          &nbsp;{{ todo.todo_date }}
-        </label>
-        <div class="form-border"></div>
 
-        <label style="padding-top:13px">
-          &nbsp;{{ todo.todo_description }}
-        </label>
-        <div class="form-border"></div>
-
-        <label style="padding-top:13px">
-          &nbsp;{{ todo.is_finished }}
-        </label>
-        <div class="form-border"></div>
-
-        <a href="{% url 'todolist:change_status' todo.id %}">
-          <input id="submit-btn" type="button" value="Change Status" />
-        </a>
-
-        <a href="{% url 'todolist:delete' todo.id %}">
-          <input id="submit-btn" type="button" value="Delete" />
-        </a>
-      </div>
-    </div>
-  </div>
 {% endfor %}
+
+<a href="{% url 'todolist:logout' %}">
+  <input id="other-btn" type="button" value="Quit" />
+</a> 
 
 <h5 class="body-text">Last login: {{ last_login }}</h5>
 
-<a href="{% url 'todolist:logout' %}">
-  <input id="other1-btn" type="button" value="Quit" />
-</a> 
+<!-- Membuat modal -->
+<div class="modal fade" id="reg-modal" tabindex="-1" aria-labelledby="modal-title" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="background: -webkit-linear-gradient(bottom, #fff56c, #ff6363);">
+      <div class="modal-header">
+        <h5 class="modal-title" style="color: #ffffff;" id="modal-title">Create your new task</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <label for="modal-title" style="color: #ffffff;" class="form-label">Title</label>
+        <input type="email" class="form-control" id="modal title" placeholder="Masukkan judul task mu">
+        <label for="modal-description" style="color: #ffffff;" class="form-label">Description</label>
+        <input type="email" class="form-control" id="modal-description" placeholder="Masukkan deskripsi">
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary" style="background: #ffffff; color: #e62525;"id="add_button">Submit</button>
+        <button class="btn btn-primary"  style="background: #ffffff; color: #e62525;"id="close_button">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+  $(document).ready(function(){
+      $("#get").click(function(){
+          $.get("/todolist/json", function(database) {
+                var userID = parseInt('{{id}}');
+                $(".card_control").empty();
+                for(var i = 0 ; i < Object.keys(database).length; i++){
+                  if(database[i].fields.user === userID){
+                    $(".card_control").append(
+                  <div id="card">
+                    <div id="card-content">
+                      <div id="card-title">
+                        <h1>database[i].fields.title</h1>
+                      </div>
+                      
+                      <div>
+                        <label style="padding-top:13px">
+                          &nbsp;database[i].fields.todo_date
+                        </label>
+                        <div class="form-border"></div>
+
+                        <label style="padding-top:13px">
+                          &nbsp;database[i].fields.todo_description
+                        </label>
+                        <div class="form-border"></div>
+
+                        <label style="padding-top:13px">
+                          &nbsp;database[i].fields.is_finished
+                        </label>
+                        <div class="form-border"></div>
+
+                        <a href="/todolist/change_status/${data[i].pk}/">
+                          <input id="submit-btn" type="button" value="Change Status" />
+                        </a>
+
+                        <a href="/todolist/delete/${data[i].pk}/">
+                          <input id="submit-btn" type="button" value="Delete" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>                      
+                    );
+                  }
+              }
+          });
+      });
+  });
+  </script>
+
+<script>
+  $(document).ready(function(){
+      $("#add_button").click(function(){
+          // get the value of CSRF token
+          var CSRFtoken = $('input[name=csrfmiddlewaretoken]').val();
+          var task_name = document.getElementById("task_title");
+          var description = document.getElementById("description");
+  
+          $.post("/todolist/add/",{
+              title: task_name,
+              desc: description,
+              csrfmiddlewaretoken: CSRFtoken
+          });
+          $("#close_button").click();
+
+          setTimeout(function(){
+            $("#get").click();
+          }, 500);
+      });
+  });
+  </script>
 {% endblock content %}

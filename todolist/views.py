@@ -5,9 +5,10 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import datetime
-from django.http import HttpResponseRedirect, HttpRequest
+from django.http import HttpResponseRedirect, HttpRequest, HttpResponse
 from django.urls import reverse
 from todolist.form import CreateTodoForm
+from django.core import serializers
 
 # Create your views here.
 @login_required(login_url='/todolist/login/')
@@ -88,3 +89,32 @@ def hapus(request, id):
     task = IsiTodolist.objects.get(pk = id)
     task.delete()
     return redirect('todolist:show_todolist')
+
+@login_required(login_url="/todolist/login")
+def show_todolist_json(request: HttpRequest):
+    todo =IsiTodolist.objects.filter(user=request.user)
+    return HttpResponse(
+        serializers.serialize("json", todo), content_type="application/json"
+    )
+
+@login_required(login_url='/todolist/login/')
+def create_json(request):
+    form = CreateTodoForm(request.POST)
+    if request.method == 'POST':
+        form = CreateTodoForm(request.POST, request.FILES)
+        if form.is_valid():
+            task = IsiTodolist(
+                todo_date=str(datetime.datetime.now().date()),
+                todo_title=form.cleaned_data["title"],
+                todo_description=form.cleaned_data["description"],
+                user=request.user,
+            )
+            task.save()
+        return HttpResponse(
+            serializers.serialize("json", [task]),
+            content_type="application/json",
+        )
+    else:
+        form = CreateTodoForm(initial={'user': request.user})
+    context = {"form": form}
+    return render(request, 'create.html', context)
