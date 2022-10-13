@@ -8,4 +8,8 @@ Paradigma *Event-driven programming* merupakan sebuah paradigma yang dimana enti
 Penerapan *asynchronus programming* pada `AJAX` di tugas kali ini adalah, sesuai dengan nama dari `AJAX` yaitu `Asynchronous JavaScript And XML` dimana kita bisa melakukan *asynchronus programming* dimana kita tidak perlu mereload suatu page untuk menambahkan todolist baru. Hal yang perlu dilakukan hanya memunculkan sebuah modal yang kali ini digunakan menggunakan `bootstrap` lalu menambahkan task pada modal tersebut. Karena itu, kita tidak perlu berpindah *page* dan hanya menambahkan di ajax tersebut. Lalu task akan langsung bertambah di halaman tersebut. Implementasi itulah yang merupakan sebuah *asynchronus programming* dimana terjadi lebih dari satu proses sekaligus.
 
 ##  Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+- Memodifikasi views.py yang terdapat pada todolist dan menambahkan fungsi baru yaitu `show_todolist_json` untuk menampilkan todolist menggunakan `ajax`
+- Membuat dan melakukan routing pada `urls.py`
+- Membuat sebuah modal berbentuk form yang menggunakan Booststrap.
+- Memodifikasi dan mendesain booststrap tersebut.
 
